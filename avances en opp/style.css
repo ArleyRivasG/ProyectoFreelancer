@@ -1,0 +1,38 @@
+:root{
+    --blanco: #FDFEFE;
+    --negro: #212121;
+    --amarillo: #F1C40F;
+    --azul:#5DADE2   ;
+    --gris:#B2BABB;   
+
+--fuente_principal: 3.8rem; /*puedo crear cualquier variable y luego usarla abajo con  */
+
+}
+
+.titulo::before{
+    content: "Titulo: ";
+}
+.titulo{
+    font-family: Arial, Helvetica, sans-serif ;
+    /* pagina para fuentes: https://fonts.google.com/* 
+    seleciono las fuentes a usar y luego agg el link que me genera a mano derecha superior
+    primero cargar las librerias, luego los enlaces a servidores ejemplo este es de google
+     y luego si cargar mis hojas de estilo, por especificidad
+        
+     1. Libreria
+     2. Enlaces como el de fuentes
+     3. hojas
+     */
+    
+    } 
+  
+  
+    /* Clara Lucio Usuario Consulta Web 
+    ip equipo: 172.30.129.52
+    
+    CONSULTAS WEB 
+
+    User: clucio
+    Password: Lucio.20
+    */
+

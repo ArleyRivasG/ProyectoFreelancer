@@ -1,0 +1,360 @@
+:root {
+  --blanco: #fdfefe;
+  --negro: #212121;
+  --amarillo: #f1c40f;
+  --azul: #0097a7;
+  --gris: #b2babb;
+  --fuente_principal: 3.8rem;
+  /*puedo crear cualquier variable y luego usarla abajo con  */
+}
+/* Globales */
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+}
+/* con el before o after agrego algo a cualquier elemento Html solo declarandolo aca en el Css*/
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  /*1rem = 10px*/
+  font-family: "Krub", sans-serif;
+  /*  con esta linea agregamos un color de fondo aunque diga bg-imagen: con el linear-gradient ( en top= abajo,color a agregar y 0% 
+    es que comience de abajo del body otras(right, bottom, luego con el var blanco es para donde tiende a cambiar el color y el 100% es que tan desvanecido)*/
+  background-image: linear-gradient(to top, #dfe9fe 0%, var(--blanco) 100%);
+}
+
+.contenedor {
+  max-width: 100rem;
+  /**/
+  /*las margenes en sus 4 direciones Arriba, Abajo, Izq, Der,*/
+  /*margin-top: 0%; */
+  /* para separar el elemento de lo que esta arriba*/
+  /*margin-right: auto;
+    margin-bottom: 0%;
+    margin-left: auto;*/
+  /* separacion a la izquierda */
+  /* con la etiqueta margin le mando los cuatos valores de una vez arriba, derecha, abajo e izquierda*/
+  /*margin: 0% auto 0% auto;*/
+  /* cuando estos valores se repiten puedo dejar solo 2 css ya sabe que se repiten*/
+  margin: 0 auto;
+}
+
+.boton {
+  background-color: var(--azul);
+  color: var(--blanco);
+  padding: 1rem 3rem;
+  /*separar el boton de lo que este arriba 1 rem*/
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  width: 90%;
+  text-align: center;
+  border: none;
+}
+/* Regresar el cursos a los botones, ya que cuando se le agrega estilos (css) esa propiedad se pierde. */
+
+.boton:hover {
+  cursor: pointer;
+}
+/* .enviar .boton {
+    width: 100%;
+} */
+
+.sombra {
+  /* --webkit-boz-shadow: 0px 5px 15px 0 px rgba(112, 112, 112, 0.54);
+    --moz-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54); */
+  box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+  background-color: var(--blanco);
+  padding: 2rem;
+}
+/* Tipografia */
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+/* Titulos  */
+
+.titulo {
+  font-weight: 700;
+  /*el 700 o bold viene por defecto para los H1,2,3,etc, si lo quiero sin negrita ponerle 400*/
+  /* 1rem = 10px  con los rem el sitio se vuelve mejor adaptable para todo tipo de navegadores-pantalla*/
+}
+/*.titulo::after {
+    content: "esto se pone despues del titulo";
+}   Estos elementos no existen en en html, pero si se vizualiza en la Web y existe el contenido Css (pseudo-elemento)
+*/
+/*por especificidad se aplica el que tenga el selector de mayor especificación 
+aun asi siendo Css en cascada*/
+/*h1.titulo span {
+  font-size: 2rem;
+  color: red;
+}
+span {
+    font-size: 2rem;
+    color:greenyellow;
+}*/
+
+.titulo span {
+  font-size: 2rem;
+  color: green;
+}
+/* UTILIDADES */
+
+.w-sm-100 {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.alinear-derecha {
+  justify-content: flex-end;
+}
+/* Navegacion Principal */
+
+.nav-bg {
+  background-color: var(--azul);
+}
+
+.navegador_principal {
+  /*el padding es igual que el margin se puede especificar sus 4 lados A, D, Abaj, Izq, o solo dale un valor a todos*/
+  /*padding: 1rem;*/
+  display: flex;
+  flex-direction: column;
+  /*flex-direction: column;para manejar el menu en una sola columna por defecto viene en row (fila)*/
+  /*space- tiene varias opciones mirar la que más se acomode*/
+}
+
+@media (min-width: 768px) {
+  /* 480px para Telefono, 720px para tablet y 1400 para monitor*/
+  .navegador_principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.navegador_principal a {
+  display: block;
+  text-align: center;
+  color: var(--blanco);
+  text-decoration: none;
+  /* quitar la linea de hipervinculp*/
+  padding: 1rem;
+  /* tamaño de contornos*/
+  font-size: 1em;
+  /* tamaño del texto*/
+  font-weight: 700;
+  /* bold o 700 para negrita, normal o 400 para sencilla*/
+  align-items: center;
+}
+
+.navegador_principal a:hover {
+  /* el :hover para mostrar esa sobra de fondo cuando pase el mouse sobre el elemento*/
+  background-color: var(--amarillo);
+  color: var(--negro);
+}
+
+@media (min-width: 760px) {
+  /* solo aplica cuando la pantalla pase los 760px*/
+  .w-sm-100 {
+    width: auto;
+  }
+  .boton {
+    width: auto;
+  }
+  .boton:hover {
+    background-color: var(--gris);
+  }
+}
+/* .boton:hover {
+              background-color: var(--amarillo);
+          } */
+/* Hero */
+
+.hero {
+  background-image: url(../img/hero2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* o 450px*/
+  height: 45rem;
+  /*2rem* o 20px*/
+  /*padding: 20px; sobra por lo de la posición absoluta*/
+  /*posicion relativa para el padre .hero*/
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.contenido-hero {
+  /*bottom= abajo, right=derecha, left=izquierda, top= arriba*/
+  position: absolute;
+  /*rgb(,,,) el cuarto parametro indica el nivel de transparencia o ls opcion (0 0 0/ 20%) el 20% es nivel de transparencia*/
+  /*background-color: rgb(0, 0, 0, 0.2); */
+  background-color: rgb(0 0 0 / 30%);
+  /*ancho y alto del 100% Para posicionarlo en el medio
+                          o usar cada posicion,  top, right, left, bottom a 0 */
+  width: 100%;
+  height: 100%;
+  /* Manejo contenido centrar y poner en blanco*/
+  /* poner todo en linea*/
+  display: flex;
+  /*paso cada elemento a columna*/
+  flex-direction: column;
+  /*centrar horizontalmente porque lo pase de row (que viene por defecto) a column*/
+  align-items: center;
+  /* cuando no lo he cambiado a column con el flex-direction: column; alinea horizontal, sino alinea vertical*/
+  /*alinear verticalmente*/
+  justify-content: center;
+}
+/* aplicar diseño a dos elementos de la misma clase*/
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+/* SCROLL Snap*/
+
+.servicios,
+.navegador_principal,
+.formulario {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+/** Servicios**/
+
+@media (min-width: 760px) {
+  .servicios {
+    display: grid;
+    /*Agrego las propiedades de css grid al igual que hacia con flex  */
+    /* 33.3% 33.3% 33.3% o fr de fracciones para no hacer calculos  o repeat(3, 1fr)*/
+    grid-template-columns: 1fr 1fr 1fr;
+    /* separo lo que contiene cada columna */
+    column-gap: 1 rem;
+  }
+}
+
+.servicio {
+  /*pongo todo en una fila*/
+  display: flex;
+  /* direcciono todo en columna uno sobre otro */
+  flex-direction: column;
+  /*centramos*/
+  align-items: center;
+}
+
+.servicio h3 {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  color: var(--azul);
+  /*al pasarlo a normal ese h3 queda sin negrita pasa de bold a normal*/
+  font-weight: normal;
+}
+
+.servicio p {
+  /* interlineado*/
+  line-height: 2;
+  text-align: center;
+}
+
+.servicio .iconos {
+  height: 15rem;
+  width: 15rem;
+  background-color: var(--amarillo);
+  border-radius: 50%;
+  /* lo vuelvo en fila con flex, solo opera en una dirección (row) */
+  display: flex;
+  /*ubicación de contenido*/
+  justify-content: space-evenly;
+  /*alinear vertical como horizontal*/
+  align-items: center;
+}
+/*Contacto*/
+
+.formulario {
+  background-color: var(--gris);
+  /*de acuerdo al tamaño de la pantalla toma el minimo,
+     ejemplo si el 100% de la pant. 
+     de una table es más de 60 rem, se queda en 60rem,
+      sino toma el 100 de la pant.*/
+  width: min(60rem, 100%);
+  /*uso margin 0 auto para centrar, lo uso cuando tenga formulario cuyo padre no es display flex*/
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.formulario fieldset {
+  border: none;
+}
+
+.formulario legend {
+  text-align: center;
+  font-size: 1.8rem;
+  /*poner en mayusculas*/
+  text-transform: uppercase;
+  /*poner en negrita */
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+.contenedor_campos {
+}
+
+.campo {
+  margin-bottom: 1rem;
+  /* si le agrego el display flex, pondra el label al lado del input */
+  /* display: flex; */
+}
+
+.campo label {
+  color: var(--blanco);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  /*organizar todo justificado*/
+  display: block;
+}
+/* Seleccionar a input de type="text" y si quiero agg el de telefono ahi mismo
+
+.campo input[type="text"],
+.campos input[type="tel"] {
+    background-color: wheat;
+} */
+
+.input-text {
+  width: 100%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
